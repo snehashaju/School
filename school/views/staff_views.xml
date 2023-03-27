@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Form View-->
+        <record id="view_staff_staff_form" model="ir.ui.view">
+            <field name="name">staff_staff.form</field>
+            <field name="model">staff.staff</field>
+            <field name="arch" type="xml">
+                <form string="Staff">
+                    <header>
+                        <field name="status" widget="statusbar" options="{'clickable': '1'}"/>
+                    </header>
+                    <sheet>
+                          <field name="image" widget="image" class="oe_avatar"/>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="age"/>
+                                <field name="date_of_birth"/>
+                            </group>
+                            <group>
+                                <field name="gender" required="1"/>
+                                <field name="position" required="1"/>
+                                <field name="phone"/>
+
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Note">
+                                <group>
+                                    <field name="note"/>
+                                </group>
+                            </page>
+                            <page string="Contact">
+                                <group>
+                                    <group>
+                                        <field name="phone"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!--Tree Views-->
+        <record id="view_staff_staff_tree" model="ir.ui.view">
+            <field name="name">staff.staff.tree</field>
+            <field name="model">staff.staff</field>
+            <field name="arch" type="xml">
+                <tree string="Staff">
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="date_of_birth"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- Action -->
+        <record id="action_staff_staff" model="ir.actions.act_window">
+            <field name="name">Staff</field>
+            <field name="res_model">staff.staff</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Menus-->
+        <menuitem id="school_menu" name="School" sequence="1"/>
+        <menuitem id="staff_menu" name="Staff" sequence="2" action="action_staff_staff" parent="school_menu"/>
+
+    </data>
+</odoo>

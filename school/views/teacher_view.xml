@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Form View-->
+        <record id="view_teacher_teacher_form" model="ir.ui.view">
+            <field name="name">teacher_teacher.form</field>
+            <field name="model">teacher.teacher</field>
+            <field name="arch" type="xml">
+                <form string="Teacher">
+                    <header>
+                        <field name="status" widget="statusbar" options="{'clickable': '1'}"/>
+                    </header>
+                    <sheet>
+                          <field name="image" widget="image" class="oe_avatar"/>
+                        <group>
+                            <group>
+                                <field name="name"/>
+
+                                <field name="age"/>
+                                <field name="date_of_birth" attrs="{'readonly': [('age', '&lt;', 18)], 'required': [('age', '&gt;=', 18)]}"/>
+                                <field name="subject"/>
+
+                            </group>
+                            <group>
+                                <field name="gender" required="1"/>
+                                <field name="phone" size="10"/>
+                                <field name="active" string="Present" widget="boolean_toggle" />
+                                <field name="teacher_id" attrs="{'invisible': [('active','=',False)] }"/>
+                                <field name="in_active" string="Absent" widget="boolean_toggle"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Note">
+                                <group>
+                                    <group>
+                                        <field name="note"/>
+                                        <field name="english_qualification" attrs="{'invisible': [('subject', '!=', 'english')]}"/>
+                                        <field name="malayalam_qualification" attrs="{'invisible': [('subject', '!=', 'malayalam')]}"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Contact">
+                                <group>
+                                    <group>
+                                        <field name="phone"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!--Tree Views-->
+        <record id="view_teacher_teacher_tree" model="ir.ui.view">
+            <field name="name">teacher.teacher.tree</field>
+            <field name="model">teacher.teacher</field>
+            <field name="arch" type="xml">
+                <tree string="Teacher">
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="date_of_birth"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- Action -->
+        <record id="action_teacher_teacher" model="ir.actions.act_window">
+            <field name="name">Teacher</field>
+            <field name="res_model">teacher.teacher</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Menus-->
+        <menuitem id="school_menu" name="School" sequence="1"/>
+        <menuitem id="teacher_menu" name="Teacher" sequence="2" action="action_teacher_teacher" parent="school_menu"/>
+
+    </data>
+</odoo>
