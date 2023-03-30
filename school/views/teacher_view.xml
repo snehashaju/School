@@ -26,7 +26,7 @@
                                 <field name="gender" required="1"/>
                                 <field name="phone" size="10"/>
                                 <field name="active" string="Present" widget="boolean_toggle" />
-                                <field name="teacher_id" attrs="{'invisible': [('active','=',False)] }"/>
+                                <field name="teacher_emp_id" attrs="{'invisible': [('active','=',False)] }"/>
                                 <field name="in_active" string="Absent" widget="boolean_toggle"/>
                             </group>
                         </group>
@@ -42,11 +42,32 @@
                             </page>
                             <page string="Contact">
                                 <group>
-                                    <group>
+
                                         <field name="phone"/>
-                                    </group>
                                 </group>
                             </page>
+                             <page string="Student">
+                                <group>
+                                    <field name="student_ids">
+                                        <tree editable="bottom">
+                                            <field name="teachers_id"/>
+                                            <field name="student_id"/>
+
+                                        </tree>
+                                    </field>
+                                </group>
+                             </page>
+                            <page string="Subject">
+                                <group>
+                                    <field name="subject_teacher">
+                                        <tree editable="bottom">
+                                        <field name="teacher_id"/>
+                                            <field name="subject_ids" widget="many2many_tags"/>
+                                            <field name="age"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                             </page>
                         </notebook>
                     </sheet>
                 </form>

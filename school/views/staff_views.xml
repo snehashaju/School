@@ -23,7 +23,7 @@
                                 <field name="gender" required="1"/>
                                 <field name="position" required="1"/>
                                 <field name="phone"/>
-
+                                <field name="teacher_id"/>
                             </group>
                         </group>
                         <notebook>

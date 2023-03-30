@@ -14,3 +14,4 @@ class StaffInfo(models.Model):
     status = fields.Selection([('temporary', 'Temporary'), ('permanent', 'Permanent')], 'Status', defult="active")
     phone = fields.Char(string="Phone")
     note = fields.Text(string='Note')
+    teacher_id = fields.Many2one('teacher.teacher', string='Teacher')
