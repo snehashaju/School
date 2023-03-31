@@ -11,3 +11,5 @@ access_student_details,access_student_details,model_student_details,,1,1,1,1
 access_subject_subject,access_subject_subject,model_subject_subject,,1,1,1,1
 
 access_subject_teacher,access_subject_teacher,model_subject_teacher,,1,1,1,1
+
+access_parent_parent,access_parent_parent,model_parent_parent,,1,1,1,1

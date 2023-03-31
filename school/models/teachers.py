@@ -16,13 +16,14 @@ class TeacherInfo(models.Model):
         'Status', default='temporary')
     phone = fields.Char(string="Phone")
     note = fields.Text(string='Note')
-    active = fields.Boolean(string="Active")
-    in_active = fields.Boolean(string="In-Active")
+    present = fields.Boolean(string="Present")
+    absent = fields.Boolean(string="Absent")
     subject = fields.Selection(
         [('english', 'English'),
          ('malayalam', 'Malayalam')],
         'subject'
     )
+    color = fields.Integer(string="Color")
     english_qualification = fields.Char(string="English Qualification")
     malayalam_qualification = fields.Char(string="Malayalam Qualification")
     teacher_emp_id = fields.Char(string="Teacher ID")

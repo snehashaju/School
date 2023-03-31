@@ -1,1 +1,1 @@
-from . import teachers, staff, student, subject
+from . import teachers, staff, student, subject, Parents

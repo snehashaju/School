@@ -9,7 +9,8 @@
         'views/teacher_view.xml',
         'views/staff_views.xml',
         'views/student_view.xml',
-        'views/subject_view.xml'
+        'views/subject_view.xml',
+        'views/parent_view.xml'
 
     ],
     'installable': True,
